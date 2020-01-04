@@ -11,7 +11,7 @@ var DB = {}
 
 DB.getAllUsers = function(cb){
     console.log("Fetching ALL Users!")
-    var query = 'SELECT username as Username, email as Email_id FROM users'     //WILL FETCH USERNAME AND EMAIL-ID OF ALL USERS
+    var query = 'SELECT id, username as Username, email as Email_id, isAdmin FROM users'     //WILL FETCH USERNAME AND EMAIL-ID OF ALL USERS
     connection.query(query, function(error, results, fields){
         console.log(JSON.stringify(results))
         console.log(JSON.stringify(error))

@@ -43,6 +43,7 @@ DB.deleteIncome = function(id, iid, cb){
     connection.query(query, [id, iid], function(error, results, fields){
         console.log(JSON.stringify(results))
         console.log(JSON.stringify(error))
+        cb(error, results)
     })
 
 }

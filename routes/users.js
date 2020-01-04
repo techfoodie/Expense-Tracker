@@ -34,4 +34,13 @@ router.put('/profile',
     })
   })
 
+  router.delete('/profile', 
+  //authentication check
+  function(req, res){
+      db.deleteUser(req.body.id, function(err, data){
+          res.redirect('/')
+      })
+  }
+  )
+
 module.exports = router;

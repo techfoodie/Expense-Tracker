@@ -81,7 +81,7 @@ DB.addExpense = function(id, eid, details, date, amount, c_name, cb){
     })
 }
 
-DB.getChartData = function(id, date_beg, date_end, cb){
+DB.getExpenseChartData = function(id, date_beg, date_end, cb){
     var query = "select sum(amount) as sum, c_name as category from expenses e, category c where e.c_id = c.c_id and id = ? and e_date between ? and ? group by(e.c_id)"
     connection.query(query, [id, date_beg, date_end], function(error, results, fields){
         console.log(JSON.stringify(results))
