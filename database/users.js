@@ -27,11 +27,11 @@ DB.getUser = function(id, cb){
     })
 }
 
-DB.insertUser = function(username, password, email, isAdmin, cb){
-    console.log("Inserting User with username: " + username)
-    var userToInsert = new User(null, username, password, email, isAdmin)          //inserts a new user in database. It takes username, email, password and isAdmin as input
+DB.addUser = function(username, password, email, isAdmin, cb){
+    console.log("Adding User with username: " + username)
+    var userToAdd = new User(null, username, password, email, isAdmin)          //adds a new user in database. It takes username, email, password and isAdmin as input
     var query = `INSERT INTO users SET ?`
-    connection.query(query, [userToInsert],function(error, results, fields){
+    connection.query(query, [userToAdd],function(error, results, fields){
         console.log(JSON.stringify(results))
         console.log(JSON.stringify(error))
     })
@@ -56,7 +56,7 @@ DB.modifyUser = function(id ,username, password, email, isAdmin, cb){
 }
 
 
-DB.getUser(2);
+//DB.getUser(2);
 
 function User(id, username, password, email, isAdmin){
     this.id=id,
